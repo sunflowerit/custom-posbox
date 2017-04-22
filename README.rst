@@ -1,1 +1,7 @@
-pip install --upgrade git+https://github.com/Therp/anybox.recipe.odoo.git
+pip uninstall zc.buildout
+pip uninstall zc.recipe.egg
+pip uninstall anybox.recipe.odoo
+./bootstrap
+bin/buildout
+
+
