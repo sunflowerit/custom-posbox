@@ -1,0 +1,5 @@
+if [ $# -eq 0 ]; then
+  echo "Usage: upgrade-module [module-name]"
+  exit
+fi
+bin/start_odoo --xmlrpc-port=18069 -u $1 --stop-after-init

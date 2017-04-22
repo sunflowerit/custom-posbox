@@ -7,3 +7,6 @@ anybox.recipe.odoo
 etc
 upgrade.py
 bin
+*.pyc
+upgrade.log
+local.cfg
