@@ -1,1 +1,1 @@
-bin/buildout -c frozen.cfg
+bin/buildout -c local.cfg
