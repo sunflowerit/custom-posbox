@@ -1,1 +1,1 @@
-python bootstrap.py -c odoo8.cfg #--allow-site-packages --buildout-version=2.9.3
+python bootstrap.py -c local.cfg --buildout-version=2.9.5

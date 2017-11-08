@@ -1,3 +1,0 @@
-[console_scripts]
-upgrade_module = sunflower.scripts.odoo.main:upgrade_module
-
