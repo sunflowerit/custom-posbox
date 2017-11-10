@@ -10,3 +10,4 @@ bin
 *.pyc
 upgrade.log
 local.cfg
+magento

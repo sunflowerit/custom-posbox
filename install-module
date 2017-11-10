@@ -1,5 +1,0 @@
-if [ $# -eq 0 ]; then
-  echo "Usage: install-module [module-name]"
-  exit
-fi
-bin/start_odoo --xmlrpc-port=18069 -i $1 --stop-after-init
