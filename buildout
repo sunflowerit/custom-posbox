@@ -1,1 +1,1 @@
-bin/buildout -c local.cfg
+bin/buildout extensions=gp.vcsdevelop -c local.cfg
