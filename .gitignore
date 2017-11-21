@@ -1,7 +1,6 @@
 develop-eggs
 eggs/*
 parts/*
-buildout.cfg
 .installed.cfg
 anybox.recipe.odoo
 etc
