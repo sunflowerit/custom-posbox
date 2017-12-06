@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Product">
+        <span class='product' t-att-data-product-id="product.id">
+            <div class="product-img">
+                <img t-att-src='image_url' /> 
+                <t t-if="!product.to_weight">
+                    <span class="price-tag">
+                        <div style="background:red;" t-if="product.list_price != product.price">
+                            <del>
+                                <div t-esc="widget.format_currency(product.list_price,'Product Price')"/>
+                            </del>
+                        </div>
+                        <div t-esc="widget.format_currency(product.price,'Product Price')"/>
+                    </span>
+                    <t t-if="widget.pos.config.show_qty">
+                        <t t-if="product.qty_available>=0">
+                            <span class="product-qty" >
+                                <t t-esc="product.qty_available"/>                     
+                            </span>                     
+                        </t>
+                        <t t-if="product.qty_available&lt;0">
+                            <span class="product-qty-low" >
+                                <t t-esc="product.qty_available"/>
+                            </span>                     
+                        </t>
+                    </t>    
+                </t>
+                <t t-if="product.to_weight">
+                    <span class="price-tag">
+                        <div style="background:red;" t-if="product.list_price != product.price">
+                            <del>
+                                <div t-esc="widget.format_currency(product.list_price,'Product Price')+'/Kg'" style="background-color:red;"/>
+                            </del>
+                        </div>
+                        <div t-esc="widget.format_currency(product.price,'Product Price')+'/Kg'"/>
+                    </span>
+                    <t t-if="widget.pos.config.show_qty">
+                        <t t-if="product.qty_available>=0">
+                            <span class="product-qty" >
+                                <t t-esc="product.qty_available"/>                     
+                            </span>                     
+                        </t>
+                        <t t-if="product.qty_available&lt;0">
+                            <span class="product-qty-low" >
+                                <t t-esc="product.qty_available"/>
+                            </span>                     
+                        </t>
+                    </t>    
+                </t>
+                <t t-if="product.is_pack">
+                   <div class="product_pack">
+                       Combo Pack
+                   </div>
+               </t>
+            </div>
+            <t t-if="product.is_pack">
+                <div class="combo_background product-name">
+                    <t t-esc="product.display_name"/>
+                </div>
+            </t>
+            <div class="product-name">
+                <t t-esc="product.display_name"/>
+            </div>
+        </span>
+    </t>
+    <t t-name="Orderline">
+        <li t-attf-class="orderline #{ line.selected ? 'selected' : '' }">
+            <span class="product-name">
+                <t t-esc="line.get_product().display_name"/>
+            </span>
+            <span class="price">
+                <t t-esc="widget.format_currency(line.get_display_price())"/>
+            </span>
+            <ul class="info-list">
+                <t t-if="line.get_quantity_str() !== '1' || line.selected ">
+                    <li class="info">
+                        <em>
+                            <t t-esc="line.get_quantity_str()" />
+                        </em>
+                        <t t-esc="line.get_unit().name" />
+                        at
+                        <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')" />
+                        /
+                        <t t-esc="line.get_unit().name" />
+                    </li>
+                </t>
+                <t t-if="line.get_product().is_pack">
+                   <i style="color: green; font-size:13px;">
+                        <t t-if="line.getPackProduct()">
+                            <t t-foreach="line.getPackProduct().pack_product_list" t-as="pos_pack">
+                               &#187; <div t-esc="pos_pack.product.display_name"/>
+                            </t>
+                        </t>
+                   </i>
+                </t>
+                <t t-if="line.get_discount_str() !== '0'">
+                    <li class="info">
+                        With a 
+                        <em>
+                            <t t-esc="line.get_discount_str()" />%
+                        </em>
+                        discount
+                    </li>
+                </t>
+            </ul>
+        </li>
+    </t>
+</templates>
