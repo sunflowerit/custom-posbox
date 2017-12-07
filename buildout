@@ -1,1 +1,0 @@
-bin/buildout extensions=gp.vcsdevelop -c local.cfg

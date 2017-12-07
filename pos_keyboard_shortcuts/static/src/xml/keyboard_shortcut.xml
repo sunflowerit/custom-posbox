@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ProductCategoriesWidget">
+        <t t-jquery=".searchbox" t-operation="replace">
+            <div class="searchbox">
+                <input placeholder="Search Products" id="mydiv"/>
+                <span class="search-clear"></span>
+            </div>
+        </t>
+    </t>
+    
+    <t t-extend="ClientListScreenWidget">
+        <t t-jquery=".top-content" t-operation="replace">
+            <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Cancel
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search Customers' id="mydiv2"/>
+                        <span class='search-clear'></span>
+                    </span>
+                    <span class='searchbox'></span>
+                    <span class='button new-customer'>
+                        <i class='fa fa-user'></i>
+                        <i class='fa fa-plus'></i>
+                    </span>
+                    <span class='button next oe_hidden highlight'>
+                        Select Customer
+                        <i class='fa fa-angle-double-right'></i>
+                    </span>
+                </section>
+        </t>
+    </t>
+
+</templates>
