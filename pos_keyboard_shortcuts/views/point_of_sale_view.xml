@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="res_company_form_inh_for_pos">
+            <field name="name">res.company.form.inherit</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                    <page name="pos_keyboard_shortcuts" string="POS Shortcuts Configuration">
+                        <group>
+	                        <group>
+	                        	<field name="pos_quantity"/>
+	                            <field name="pos_price"/>
+                            </group>
+                            <group>
+	                            <field name="pos_discount"/>
+	                            <field name="pos_search"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
