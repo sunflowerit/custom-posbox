@@ -19,10 +19,6 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
   ServerName xxx.domain.tld
   ServerAdmin me@example.com
 
-  Header set Access-Control-Allow-Origin "*"
-  Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
-  Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
-
   Redirect permanent / https://xxx.domain.tld/
 
   ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -37,7 +33,7 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
   SSLCertificateFile /root/.acme.sh/xxx.domain.tld/xxx.domain.tld.cer
   SSLCertificateKeyFile /root/.acme.sh/xxx.domain.tld/xxx.domain.tld.key
 
-  Header set Access-Control-Allow-Origin "*"
+  # Header set Access-Control-Allow-Origin "*" --> already added by Odoo
   Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
   Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 
