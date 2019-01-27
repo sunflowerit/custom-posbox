@@ -20,6 +20,8 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
   ServerAdmin me@example.com
 
   Header set Access-Control-Allow-Origin "*"
+  Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+  Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 
   Redirect permanent / https://xxx.domain.tld/
 
@@ -36,6 +38,8 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
   SSLCertificateKeyFile /root/.acme.sh/xxx.domain.tld/xxx.domain.tld.key
 
   Header set Access-Control-Allow-Origin "*"
+  Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+  Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 
   ProxyPreserveHost On
   ProxyRequests Off
