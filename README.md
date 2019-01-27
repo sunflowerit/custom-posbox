@@ -1,4 +1,4 @@
-== Buildout for POSbox ==
+# Buildout for POSbox
 
 Odoo sells a POSbox, but it is an external device (Raspberry Pi) and also not very configurable - you have to recreate the Raspberry image any time you want to add a module or change a setting. It also does not support HTTPS out of the box, which is a problem because of Mixed Request errors when your main Odoo runs on HTTPS.
 
@@ -10,7 +10,7 @@ This buildout configures an Odoo that runs as a POSbox and is meant to run in a 
 
 In this case, the real Odoo can run on the cloud, each POS station is its own POSbox, and we are free to configure by modifying this buildout and running `bin/start_odoo` again.
 
-== POSbox on HTTPS ==
+## POSbox on HTTPS
 
 To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld) pointing at your POS station's internal IPs. To avoid using self-signed or paid certificates, you can use the following trick: use [acme.sh](https://github.com/Neilpang/acme.sh) in combination with a supported DNS provider to receive a verified SSL certificate on your local machine. You can then use the following config in Apache:
 
