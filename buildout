@@ -1,1 +1,9 @@
-bin/buildout extensions=gp.vcsdevelop -c local.cfg
+#!/bin/bash
+set -e -x
+for path in parts/*; do
+  if [ ! -e "$f" ]; then
+     continue
+  fi
+  git -C $path reset --merge
+done
+bin/buildout -c local.cfg
