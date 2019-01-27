@@ -21,7 +21,7 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
 
   Header set Access-Control-Allow-Origin "*"
 
-  Redirect permanent / https://xxx.domain.tld
+  Redirect permanent / https://xxx.domain.tld/
 
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -39,8 +39,8 @@ To run on HTTPS, it is necessary to have domains (xxx.domain.tld, yyy.domain.tld
 
   ProxyPreserveHost On
   ProxyRequests Off
-  ProxyPass / http://localhost:8069
-  ProxyPassReverse / http://localhost:8069
+  ProxyPass / http://localhost:8069/
+  ProxyPassReverse / http://localhost:8069/
 
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
