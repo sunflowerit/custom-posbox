@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+LIBRARIES_REPOSITORIES='git@github.com:sunflowerit/waftlib.git'
+LIBRARIES_BRANCH='master'
+
+################################################################
+######                                                    ######
+######       Don't change variables after this line       ######
+######                                                    ######
+################################################################
+
+ODOO_WORK_DIR=$(SCRIPT_PATH= cd -- "$(/usr/bin/dirname "$0")" && /bin/pwd)
+cd $ODOO_WORK_DIR
+
+/bin/rm -fr waftlib
+/usr/bin/git clone -b $LIBRARIES_BRANCH $LIBRARIES_REPOSITORIES $ODOO_WORK_DIR/waftlib
+
+$ODOO_WORK_DIR/waftlib/bootstrap
